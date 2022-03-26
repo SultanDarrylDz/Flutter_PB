@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:userinterface/screens/pembeli_screen.dart';
 import 'menu1_screen.dart';
 import 'buku.dart';
 import 'pembeli.dart';
@@ -59,7 +60,7 @@ class Menu1_Screen extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => BookScreen()));
+                                          builder: (context) => Buku()));
                                 },
                               ),
                             ),

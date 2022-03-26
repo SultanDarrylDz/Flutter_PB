@@ -48,7 +48,7 @@ class Buku extends StatelessWidget {
                                 DataCell(Text("Action")),
                                 DataCell(Text("Sultan")),
                                 DataCell(Text("192")),
-                                DataCell(Text("Rp. 32000")),
+                                DataCell(Text("Rp. 12000")),
                               ],
                             ),
                           ],
