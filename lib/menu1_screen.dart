@@ -5,6 +5,7 @@ import 'buku.dart';
 import 'pembeli.dart';
 import 'transaksi.dart';
 import 'package:userinterface/screens/book_screen.dart';
+import 'package:userinterface/screens/transaksi_screen.dart';
 
 class Menu1_Screen extends StatelessWidget {
   @override
@@ -60,7 +61,7 @@ class Menu1_Screen extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Buku()));
+                                          builder: (context) => BookScreen()));
                                 },
                               ),
                             ),
@@ -78,7 +79,7 @@ class Menu1_Screen extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Pembeli()));
+                                          builder: (context) => PembeliScreen()));
                                 },
                               ),
                             ),
@@ -101,7 +102,7 @@ class Menu1_Screen extends StatelessWidget {
                                   Navigator.push(
                                       context,
                                       MaterialPageRoute(
-                                          builder: (context) => Transaksi()));
+                                          builder: (context) => TransaksiScreen()));
                                 },
                               ),
                             ),

@@ -8,7 +8,7 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: Center(
             child: Text(
-          "Home",
+          "Beranda",
           style: TextStyle(color: Colors.white),
         )),
         backgroundColor: Colors.black,

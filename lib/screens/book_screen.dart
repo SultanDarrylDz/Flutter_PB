@@ -16,24 +16,39 @@ class BookScreen extends StatelessWidget {
     width = size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Center(child: Text('Data Buku')),
+        title: Center(
+            child: Text(
+          "Buku",
+          style: TextStyle(color: Colors.white),
+        )),
+        backgroundColor: Colors.black,
       ),
       body: Obx(
         () => bookcontroller.isLoading()
             ? Center(child: const CircularProgressIndicator())
             : Center(
                 child: ListView.builder(
-                scrollDirection: Axis.horizontal,
                 itemCount: bookcontroller.bookList.length,
                 itemBuilder: (content, index) {
-                  return Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      Container(
-                        margin: EdgeInsets.all(15),
-                        child: DataTable(
-                          columns: [
-                            DataColumn(label: Text("Kode")),
+                  return SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        Container(
+                         
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                Container(
+                                   decoration: BoxDecoration(
+                              image: DecorationImage(
+                                  image: AssetImage("assets/img/lib.jpg"),
+                                  fit: BoxFit.cover)),
+                                    margin: EdgeInsets.all(15),
+                                    child: DataTable(
+                                      columns: [
+                                        DataColumn(label: Text("Kode")),
                             DataColumn(label: Text("Judul")),
                             DataColumn(label: Text("Nama Kategori")),
                             DataColumn(label: Text("Nama Pengarang")),
@@ -42,11 +57,11 @@ class BookScreen extends StatelessWidget {
                             DataColumn(label: Text("Stock")),
                             DataColumn(label: Text("harga")),
                             DataColumn(label: Text("cover")),
-                          ],
-                          rows: [
-                            DataRow(
-                              cells: [
-                                DataCell(Text(bookcontroller
+                                      ],
+                                      rows: [
+                                        DataRow(
+                                          cells: [
+                                             DataCell(Text(bookcontroller
                                     .bookList[index].kodeBuku
                                     .toString())),
                                 DataCell(Text(bookcontroller
@@ -73,12 +88,18 @@ class BookScreen extends StatelessWidget {
                                 DataCell(Text(bookcontroller
                                     .bookList[index].cover
                                     .toString())),
-                              ],
-                            ),
-                          ],
+                                          ],
+                                        ),
+                                      ],
+                                      decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(5),
+                                        color: Colors.white,
+                                      ),
+                                    )),
+                              ]),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   );
                 },
               )),

@@ -2,14 +2,14 @@ import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/src/rx_flutter/rx_obx_widget.dart';
 import 'package:get/instance_manager.dart';
 
-import '../controllers/pembeli_controller.dart';
+import '../controllers/transaksi_controller.dart';
 
-class PembeliScreen extends StatelessWidget {
-  const PembeliScreen({Key? key}) : super(key: key);
+class TransaksiScreen extends StatelessWidget {
+  const TransaksiScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    final PembeliController pembelicontroller = Get.put(PembeliController());
+    final TransaksiController transaksicontroller = Get.put(TransaksiController());
     var size, height, width;
     size = MediaQuery.of(context).size;
     height = size.height;
@@ -18,17 +18,17 @@ class PembeliScreen extends StatelessWidget {
       appBar: AppBar(
         title: Center(
             child: Text(
-          "Pembeli",
+          "Transaksi",
           style: TextStyle(color: Colors.white),
         )),
         backgroundColor: Colors.black,
       ),
       body: Obx(
-        () => pembelicontroller.isLoading()
+        () => transaksicontroller.isLoading()
             ? Center(child: const CircularProgressIndicator())
             : Center(
                 child: ListView.builder(
-                itemCount: pembelicontroller.pembeliList.length,
+                itemCount: transaksicontroller.transaksiList.length,
                 itemBuilder: (content, index) {
                   return SingleChildScrollView(
                     scrollDirection: Axis.horizontal,
@@ -48,25 +48,41 @@ class PembeliScreen extends StatelessWidget {
                                     margin: EdgeInsets.all(15),
                                     child: DataTable(
                                       columns: [
-                                         DataColumn(label: Text("Kode Pembeli")),
-                            DataColumn(label: Text("Nama Pembeli")),
-                            DataColumn(label: Text("Alamat")),
-                            DataColumn(label: Text("No HP")),
+                                       DataColumn(label: Text("ID Buku")),
+                            DataColumn(label: Text("ID Pembeli")),
+                            DataColumn(label: Text("Tanggal Beli")),
+                            DataColumn(label: Text("Jumlah Buku")),
+                            DataColumn(label: Text("Harga")),
+                            DataColumn(label: Text("Total")),
+                            DataColumn(label: Text("Uang")),
+                            DataColumn(label: Text("Kembalian")),
                                       ],
                                       rows: [
                                         DataRow(
                                           cells: [
-                                             DataCell(Text(pembelicontroller
-                                    .pembeliList[index].kodePembeli
+                                              DataCell(Text(transaksicontroller
+                                    .transaksiList[index].bukuId
                                     .toString())),
-                                DataCell(Text(pembelicontroller
-                                    .pembeliList[index].namaPembeli
+                                    DataCell(Text(transaksicontroller
+                                    .transaksiList[index].pembeliId
                                     .toString())),
-                                DataCell(Text(pembelicontroller
-                                    .pembeliList[index].alamat
+                                    DataCell(Text(transaksicontroller
+                                    .transaksiList[index].tglBeli
                                     .toString())),
-                                DataCell(Text(pembelicontroller
-                                    .pembeliList[index].noHp
+                                    DataCell(Text(transaksicontroller
+                                    .transaksiList[index].jumlahBuku
+                                    .toString())),
+                                    DataCell(Text(transaksicontroller
+                                    .transaksiList[index].harga
+                                    .toString())),
+                                    DataCell(Text(transaksicontroller
+                                    .transaksiList[index].total
+                                    .toString())),
+                                    DataCell(Text(transaksicontroller
+                                    .transaksiList[index].uang
+                                    .toString())),
+                                    DataCell(Text(transaksicontroller
+                                    .transaksiList[index].kembalian
                                     .toString())),
                                           ],
                                         ),
